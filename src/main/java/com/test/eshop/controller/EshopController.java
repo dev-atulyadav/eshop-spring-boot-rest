@@ -1,7 +1,13 @@
 package com.test.eshop.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.test.eshop.dto.Customer;
+import com.test.eshop.response.ResponseStructure;
+import com.test.eshop.service.CustomerService;
 
 /**
  * @author Atul
@@ -9,8 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class EshopController {
 
-    @GetMapping(value = "/")
-    public String test() {
-        return "Hello Test 0";
+    @Autowired
+    private CustomerService customerService;
+
+    @PostMapping(value = "/saveCustomer")
+    public ResponseStructure<Customer> saveCustomerController(@RequestBody Customer customer) {
+        return customerService.save(customer);
     }
 }
