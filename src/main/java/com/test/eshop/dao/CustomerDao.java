@@ -9,13 +9,15 @@ import com.test.eshop.dto.Customer;
  */
 public interface CustomerDao {
 
-    Customer findByEmail(String email);
+    Customer findByEmailCustomerDao(String email);
 
-    Customer save(Customer customer);
+    Customer saveCustomerDao(Customer customer);
 
-    Customer findById(Long id);
+    Customer findByIdCustomerDao(Long id);
 
-    void deleteById(Long id);
+    void deleteByIdCustomerDao(Long id);
 
-    List<Customer> findAll();
+    List<Customer> findAllCustomerDao();
+
+    Customer updateCustomerDao(Customer customer);
 }

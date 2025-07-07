@@ -7,11 +7,15 @@ import com.test.eshop.response.ResponseStructure;
  * @author Atul
  */
 public interface CustomerService {
-    Customer findByEmail(String email);
+    ResponseStructure<Customer> findByEmailCustomerService(String email);
 
-    ResponseStructure<Customer> save(Customer customer);
+    ResponseStructure<Customer> saveCustomerService(Customer customer);
 
-    Customer findById(Long id);
+    ResponseStructure<Customer> findByIdCustomerService(Long id);
 
-    void deleteById(Long id);
+    ResponseStructure<Boolean> deleteByIdCustomerService(Long id);
+
+    ResponseStructure<Customer> updateCustomerService(Customer customer);
+
+    ResponseStructure<Customer> LoginCustomerService(Customer customer);
 }
