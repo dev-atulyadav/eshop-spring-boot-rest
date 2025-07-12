@@ -11,6 +11,10 @@ spring:
     show-sql: true
 
   security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/
     user:
       name: admin
       password: admin

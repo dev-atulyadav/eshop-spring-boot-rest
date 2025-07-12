@@ -59,13 +59,14 @@ public class CustomerServiceIpmli implements CustomerService {
                 && dataValidation.isValidPhone(customer.getPhone())) {
             customer.setPassword(passwordEncoder.encode(customer.getPassword()));
             customerDao.saveCustomerDao(customer);
+            customer.setPassword(null); // to avoid password in response
             responseStructure.setMessage("Customer saved successfully");
             responseStructure.setData(customer);
             responseStructure.setStatus("success");
             responseStructure.setError(null);
             return responseStructure;
         } else {
-            responseStructure.setMessage("Please check your email and password!");
+            responseStructure.setMessage("Please check your email, password and phone!");
             responseStructure.setData(customer);
             responseStructure.setStatus("error");
             responseStructure.setError("Invalid data");
